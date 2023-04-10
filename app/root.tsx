@@ -1,7 +1,7 @@
-import type { MetaFunction } from "@vercel/remix";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
 import { Analytics } from "@vercel/analytics/react";
+import type { LinksFunction } from "@remix-run/node";
+import type { MetaFunction } from "@vercel/remix";
 import stylesheet from "~/tailwind.css";
 
 export const meta: MetaFunction = () => ({
