@@ -10,7 +10,7 @@ export function PageHeader(props: PageHeaderProps) {
   const { title } = props;
 
   return (
-    <header className="w-1/2 m-auto flex justify-center">
+    <header className="flex justify-center p-7">
       <h1>{title}</h1>
     </header>
   );

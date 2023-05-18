@@ -4,8 +4,8 @@ import { links as mainLayoutLinks } from "./MainLayout";
 import { links as pageHeaderLinks } from "./PageHeader";
 
 export { LeftNavigation } from "./LeftNavigation";
-export * from "./MainLayout";
-export * from "./PageHeader";
+export { MainLayout } from "./MainLayout";
+export { PageHeader } from "./PageHeader";
 
 export const links: LinksFunction = () => {
   return [...leftNavigationLinks(), ...mainLayoutLinks(), ...pageHeaderLinks()];

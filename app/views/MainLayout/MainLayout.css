@@ -1,4 +1,5 @@
 .mainLayoutContainer {
   display: grid;
   grid-template-columns: auto 1fr;
+  box-shadow: 4px 4px 8px #bfbfc4, -4px -4px 8px #ffffff;
 }

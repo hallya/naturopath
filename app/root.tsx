@@ -1,9 +1,11 @@
+import { LeftNavigation, MainLayout, links as viewsLinks } from "./views";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
-import { MainLayout, links as viewsLinks } from "./views";
 import { Analytics } from "@vercel/analytics/react";
 import type { LinksFunction } from "@remix-run/node";
 import type { MetaFunction } from "@vercel/remix";
-import stylesheet from "~/tailwind.css";
+import globalStylesheet from "~/styles/global.css";
+import { navItems } from "./routes/navLinks";
+import tailwindStylesheet from "~/tailwind.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -12,7 +14,11 @@ export const meta: MetaFunction = () => ({
 });
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesheet }, ...viewsLinks()];
+  return [
+      { rel: "stylesheet", href: tailwindStylesheet },
+      { rel: "stylesheet", href: globalStylesheet },
+      ...viewsLinks()
+    ];
 };
 
 export default function App() {
@@ -24,6 +30,7 @@ export default function App() {
       </head>
       <body>
         <MainLayout>
+          <LeftNavigation navItems={navItems} />
           <Outlet />
         </MainLayout>
         <ScrollRestoration />

@@ -1,7 +1,6 @@
-import { mapNavLinks, navItems } from "./navLinks";
-import { LeftNavigation } from "../views";
-import type { LinksFunction } from "@vercel/remix";
 import { PageHeader } from "../views";
+import type { LinksFunction } from "@vercel/remix";
+import { mapNavLinks } from "./navLinks";
 import { useLocation } from "@remix-run/react";
 
 export const links: LinksFunction = () => {
@@ -11,9 +10,11 @@ export const links: LinksFunction = () => {
 export default function IndexRoute() {
   const { pathname } = useLocation();
   return (
-    <>
-      <LeftNavigation navItems={navItems} />
+    <main>
       <PageHeader title={mapNavLinks[pathname].pageTitle} />
-    </>
+      <section>
+        <h2>Coucou</h2>
+      </section>
+    </main>
   );
 }

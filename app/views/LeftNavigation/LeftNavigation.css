@@ -1,9 +1,37 @@
-.plastic-corner {
-  box-shadow: 0 0 0 1px hsl(48, 100, 60), 0 0 0 1px hsl(48, 100, 100);
+.nav {
+  box-shadow: 4px 4px 8px #bfbfc4, -4px -4px 8px #ffffff;
 }
 
 .listContainer {
   display: grid;
   grid-auto-flow: row;
   grid-auto-rows: auto;
+}
+
+.link {
+  box-shadow: inset 0px 0px 0px #bfbfc4, inset 0px 0px 0px #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:hover {
+  box-shadow: 4px 4px 8px #bfbfc4, -4px -4px 8px #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:active {
+  box-shadow: 0px 0px 0px #bfbfc4, -0px -0px 0px #ffffff;
+  transition: all 0.1s ease-in-out;
+}
+
+.pressed {
+  box-shadow: inset 4px 4px 8px #bfbfc4, inset -4px -4px 8px #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.pressed:active {
+  box-shadow: inset 0px 0px 0px #bfbfc4, inset -0px -0px 0px #ffffff;
+  transition: all 0.1s ease-in-out;
+}
+.pressed:hover {
+  box-shadow: inset 4px 4px 8px #bfbfc4, inset -4px -4px 8px #ffffff;
+  transition: all 0.2s ease-in-out;
 }

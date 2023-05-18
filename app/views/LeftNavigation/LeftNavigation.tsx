@@ -14,17 +14,17 @@ export function LeftNavigation(props: LeftNavigationProps) {
   const { pathname } = useLocation();
 
   return (
-    <nav  className="p-5 border-r-indigo-100 border-r-[1px]">
-      <ul  className="pt-28 gap-[8px] listContainer">
+    <nav className="nav p-5 bg-neutral-100">
+      <ul className="pt-28 gap-[8px] listContainer">
         {navItems.map(item => {
           return (
             <li key={item.id}>
               <a
                 href={item.href}
-                className={`py-2 px-3 w-full block ease-linear duration-100 text-black ${
+                className={`link p-3 w-full block rounded-lg ${
                   pathname === item.href
-                    ? "text-violet-700 bg-neutral-100 rounded-lg"
-                    : "hover:text-violet-700 hover:bg-neutral-100 hover:rounded-lg"
+                    ? "text-yellow-600 pressed"
+                    : "hover:text-yellow-500"
                 }`}
               >
                 {item.pageTitle}
