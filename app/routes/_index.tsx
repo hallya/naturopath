@@ -1,5 +1,5 @@
-import { PageHeader } from "../views";
 import type { LinksFunction } from "@vercel/remix";
+import { PageHeader } from "../views";
 import { mapNavLinks } from "./navLinks";
 import { useLocation } from "@remix-run/react";
 
