@@ -20,7 +20,7 @@ export function LeftNavigation(props: LeftNavigationProps) {
   return (
     <nav className={`${mobileClass} ${desktopClass} nav p-5 left-5 m-auto bg-neutral-100 duration-200`}>
       <button aria-label="open menu" className="toggleMenu sm:hidden" onClick={() => setIsOpen(!isOpen)}><div className="buttonTexture" /></button>
-      <ul className="pt-0 sm:pt-28 gap-[8px] listContainer">
+      <ul className="pt-0 gap-[8px] listContainer">
         {navItems.map(item => {
           return (
             <li key={item.id}>
