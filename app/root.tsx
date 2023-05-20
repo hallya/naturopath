@@ -30,7 +30,7 @@ export default function App() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&family=Prata&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Prata&display=swap"
           rel="stylesheet"
         />
       </head>

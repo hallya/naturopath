@@ -23,12 +23,11 @@ export function LeftNavigation(props: LeftNavigationProps) {
       className={`${mobileClass} ${desktopClass} nav sm:p-5 left-5 m-auto bg-neutral-100 duration-200`}
     >
       <button
-        aria-label="open menu"
+        aria-label={`${isOpen ? "close" : "open"} menu`}
         className="toggleMenu sm:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {/* <div className="buttonTexture" /> */}
-        menu
+        {isOpen ? "✺ fermer ✺" : "✺ menu ✺"}
       </button>
       <ul className="pt-0 gap-[8px] listContainer">
         {navItems.map(item => {
@@ -37,14 +36,10 @@ export function LeftNavigation(props: LeftNavigationProps) {
               <NavLink
                 to={item.href}
                 className={({ isActive }) =>
-                  `link p-3 w-full min-w-max block rounded-lg ${
-                    isActive ? "pressed" : ""
-                  }`
+                  `link p-3 w-full min-w-max block rounded-lg ${isActive ? "pressed" : ""}`
                 }
               >
-                <span>
-                  {item.pageTitle}
-                </span>
+                <span>{item.pageTitle}</span>
               </NavLink>
             </li>
           );

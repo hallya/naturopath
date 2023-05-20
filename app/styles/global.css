@@ -1,9 +1,11 @@
 :root {
-  --lighter-bg: hsl(0 0% 96%);
-  --light-bg: hsl(0 15% 95%);
-  --main-box-shadow: 4px 4px 8px #bfbfc4, -4px -4px 8px #ffffff;
-  --main-color: hsl(0, 0%, 14.9%);
-  --text-gradient: linear-gradient(90deg, #2eb8c5 0%, #1eab7e 100%);
+  --lighter-bg: hsl(29, 46%, 90%);
+  --light-bg: hsl(29, 46%, 89%);
+  --main-box-shadow: 4px 4px 8px hsl(29, 46%, 75%), -4px -4px 8px hsl(29, 46%, 98%);
+  --main-text-shadow: 0.5px 0.5px 1px hsl(29, 46%, 100%), -0.5px -0.5px 1px hsl(29, 46%, 70%);
+  --main-color: hsl(29, 46%, 25%);
+  --selected-color: hsl(29, 96%, 25%);
+  --text-gradient: hsl(120, 46%, 35%);
 }
 
 html,
@@ -192,6 +194,7 @@ a,
 button,
 p {
   font-family: "Mulish", Arial, Helvetica, sans-serif;
+  letter-spacing: 0px;
 }
 
 main {
