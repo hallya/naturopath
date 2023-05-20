@@ -15,10 +15,10 @@ export const meta: MetaFunction = () => ({
 
 export const links: LinksFunction = () => {
   return [
-      { rel: "stylesheet", href: tailwindStylesheet },
-      { rel: "stylesheet", href: globalStylesheet },
-      ...viewsLinks()
-    ];
+    { rel: "stylesheet", href: tailwindStylesheet },
+    { rel: "stylesheet", href: globalStylesheet },
+    ...viewsLinks(),
+  ];
 };
 
 export default function App() {
@@ -27,6 +27,12 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&family=Prata&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
         <MainLayout>

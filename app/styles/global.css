@@ -1,3 +1,11 @@
+:root {
+  --lighter-bg: hsl(0 0% 96%);
+  --light-bg: hsl(0 15% 95%);
+  --main-box-shadow: 4px 4px 8px #bfbfc4, -4px -4px 8px #ffffff;
+  --main-color: hsl(0, 0%, 14.9%);
+  --text-gradient: linear-gradient(90deg, #2eb8c5 0%, #1eab7e 100%);
+}
+
 html,
 body,
 div,
@@ -82,6 +90,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
+  color: var(--main-color);
   font-size: 100%;
   font: -apple-system, "Segoe UI", Helvetica Neue, Helvetica, Roboto, Arial, sans-serif, system-ui,
     "Apple Color Emoji", "Segoe UI Emoji";
@@ -145,6 +154,8 @@ h4,
 h5,
 h6 {
   margin: 0;
+  font-family: "Prata", "Times New Roman", Times, serif;
+  letter-spacing: 2px;
 }
 
 h1 {
@@ -171,6 +182,16 @@ h5,
 h6 {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+a {
+  letter-spacing: 1px;
+}
+
+a,
+button,
+p {
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
 main {

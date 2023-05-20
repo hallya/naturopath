@@ -17,7 +17,7 @@ export const mapNavLinks: Record<string, { id: string; href: string; pageTitle: 
   "/reflexologie-plantaire": {
     id: "nav_item_plantar_reﬂexology",
     href: "/reflexologie-plantaire",
-    pageTitle: "Réﬂexologie plantaire",
+    pageTitle: "Réflexologie plantaire",
   },
   "/massage": {
     id: "nav_item_massage",
