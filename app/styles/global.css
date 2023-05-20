@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Mulish-Light.woff") format("woff");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Prata";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Prata-Regular.woff") format("woff");
+  font-display: fallback;
+}
+
 :root {
   --lighter-bg: hsl(29, 46%, 90%);
   --light-bg: hsl(29, 46%, 89%);
@@ -6,6 +21,8 @@
   --main-color: hsl(29, 46%, 25%);
   --selected-color: hsl(29, 96%, 25%);
   --text-gradient: hsl(120, 46%, 35%);
+  --font-heading:  "Prata", "Times New Roman", Times, serif;
+  --font-text: "Mulish", Arial, Helvetica, sans-serif;
 }
 
 html,
@@ -89,13 +106,13 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
   border: 0;
   color: var(--main-color);
   font-size: 100%;
-  font: -apple-system, "Segoe UI", Helvetica Neue, Helvetica, Roboto, Arial, sans-serif, system-ui,
-    "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: var(--font-text);
+  letter-spacing: 0px;
+  margin: 0;
+  padding: 0;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -156,7 +173,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: "Prata", "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   letter-spacing: 2px;
 }
 
@@ -190,12 +207,6 @@ a {
   letter-spacing: 1px;
 }
 
-a,
-button,
-p {
-  font-family: "Mulish", Arial, Helvetica, sans-serif;
-  letter-spacing: 0px;
-}
 
 main {
   display: grid;

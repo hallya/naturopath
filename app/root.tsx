@@ -17,6 +17,20 @@ export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: tailwindStylesheet },
     { rel: "stylesheet", href: globalStylesheet },
+    {
+      rel: "preload",
+      href: "/fonts/Mulish-Light.woff",
+      as: "font",
+      type: "font/woff",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/Prata-Regular.woff",
+      as: "font",
+      type: "font/woff",
+      crossOrigin: "anonymous",
+    },
     ...viewsLinks(),
   ];
 };
@@ -27,12 +41,6 @@ export default function App() {
       <head>
         <Meta />
         <Links />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Prata&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body>
         <MainLayout>
