@@ -24,10 +24,10 @@ export const mapNavLinks: Record<string, { id: string; href: string; pageTitle: 
     href: "/massage",
     pageTitle: "Massage",
   },
-  "/tarif": {
-    id: "nav_item_tariff",
-    href: "/tarif",
-    pageTitle: "Tarif",
+  "/tarifs": {
+    id: "nav_item_tariffs",
+    href: "/tarifs",
+    pageTitle: "Tarifs",
   },
   "/plan-d-acces-&-contact": {
     id: "nav_item_access_map_and_contact",
