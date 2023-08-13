@@ -12,6 +12,20 @@
   src: url("/fonts/Prata-Regular.woff") format("woff");
   font-display: fallback;
 }
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Poppins-Light.woff2") format("woff2");
+  font-display: fallback;
+}
 
 :root {
   --lighter-bg: hsl(29, 46%, 90%);
@@ -21,8 +35,8 @@
   --main-color: hsl(29, 46%, 25%);
   --selected-color: hsl(29, 96%, 25%);
   --text-gradient: hsl(120, 46%, 35%);
-  --font-heading:  "Prata", "Times New Roman", Times, serif;
-  --font-text: "Mulish", Arial, Helvetica, sans-serif;
+  --font-heading:  "Playfair Display", "Times New Roman", Times, serif;
+  --font-text: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 html,
@@ -144,7 +158,6 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
   content: none;
 }
 table {
@@ -205,11 +218,4 @@ h6 {
 
 a {
   letter-spacing: 1px;
-}
-
-
-main {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding: 10px;
 }

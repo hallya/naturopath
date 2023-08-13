@@ -31,6 +31,20 @@ export const links: LinksFunction = () => {
       type: "font/woff",
       crossOrigin: "anonymous",
     },
+    {
+      rel: "preload",
+      href: "/fonts/PlayfairDisplay.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/Poppins-Light.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
     ...viewsLinks(),
   ];
 };
