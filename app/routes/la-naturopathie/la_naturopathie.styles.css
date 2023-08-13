@@ -1,0 +1,32 @@
+.main_la_naturopathie {
+  display: grid;
+  row-gap: 48px;
+  overflow: auto;
+}
+
+.section_la_naturopathie {
+  display: grid;
+  row-gap: 24px;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.section_la_naturopathie h2 {
+  background-color: var(--light-bg);
+  box-shadow: 0px 10px 10px 0px var(--light-bg);
+  padding: 24px 0 12px 0;
+  position: sticky;
+  top: 0;
+}
+
+.section_la_naturopathie p, .section_la_naturopathie ul {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1px;
+}
+
+.section_la_naturopathie ul {
+  list-style: georgian;
+  list-style-position: inside;
+}
