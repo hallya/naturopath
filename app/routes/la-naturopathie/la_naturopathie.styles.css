@@ -30,3 +30,9 @@
   list-style: georgian;
   list-style-position: inside;
 }
+
+@media screen and (max-width: 639px) {
+  .section_la_naturopathie {
+    padding: 0 16px;
+  }
+}
