@@ -30,7 +30,7 @@ export default function IndexRoute() {
             <span className="smokeLetter">o</span>
             <span className="smokeLetter">f</span>
             <span className="smokeLetter">i</span>
-            <span className="smokeLetter"> </span>
+            <span> </span>
             <span className="smokeLetter">A</span>
             <span className="smokeLetter">n</span>
             <span className="smokeLetter">n</span>
