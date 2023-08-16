@@ -4,11 +4,13 @@
   display: grid;
   row-gap: 16px;
   grid-auto-rows: max-content;
+  height: 97%;
 }
 
 .toggleMenu {
   padding: 20px 16px;
   width: 100%;
+  transition: 0.2s;
 }
 
 .listContainer {

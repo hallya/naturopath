@@ -14,13 +14,14 @@ export function LeftNavigation(props: LeftNavigationProps) {
   const { navItems } = props;
   const [isOpen, setIsOpen] = useState(false);
   const mobileClass = `fixed bottom-0 right-3 left-3 rounded-lg p-5 pt-0 p ${
-    isOpen ? "" : "translate-y-full bottom-14"
+    isOpen ? "" : "translate-y-full bottom-14 delay-100"
   }`;
-  const desktopClass = `sm:relative sm:right-0 sm:left-0 sm:top-0 sm:translate-y-0 sm:h-screen sm:rounded-none`;
+  const desktopClass =
+    "sm:relative sm:right-0 sm:left-0 sm:top-0 sm:translate-y-0 sm:h-screen sm:rounded-none";
 
   return (
     <nav
-      className={`${mobileClass} ${desktopClass} nav sm:p-5 left-5 m-auto bg-neutral-100 duration-200`}
+      className={`${mobileClass} ${desktopClass} nav sm:p-5 m-auto bg-neutral-100 duration-200 firstLayer`}
     >
       <button
         aria-label={`${isOpen ? "close" : "open"} menu`}
@@ -38,6 +39,7 @@ export function LeftNavigation(props: LeftNavigationProps) {
                 className={({ isActive }) =>
                   `link p-3 w-full min-w-max block rounded-lg ${isActive ? "pressed" : ""}`
                 }
+                onClick={() => setIsOpen(!isOpen)}
               >
                 <span>{item.pageTitle}</span>
               </NavLink>
