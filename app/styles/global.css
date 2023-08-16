@@ -184,7 +184,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+figcaption,
+cite {
   margin: 0;
   font-family: var(--font-heading);
   letter-spacing: 2px;
@@ -218,4 +220,8 @@ h6 {
 
 a {
   letter-spacing: 1px;
+}
+
+.firstLayer {
+  z-index: 10;
 }

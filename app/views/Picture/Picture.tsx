@@ -11,19 +11,25 @@ export interface PictureProps {
   alt: string;
   srcSets?: { srcSet: Pathname; media: Media }[];
   src: Pathname;
+  sizeAuto: "height" | "width";
 }
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 
 export function Picture(props: PictureProps) {
-  const { alt, srcSets = [], src } = props;
+  const { alt, srcSets = [], src, sizeAuto } = props;
 
   return (
     <picture className="picture">
       {srcSets.map(({ media, srcSet }) => (
         <source srcSet={srcSet} media={media} key={srcSet} />
       ))}
-      <img alt={alt} src={src} loading="lazy" />
+      <img
+        alt={alt}
+        src={src}
+        loading="lazy"
+        className={sizeAuto === "height" ? "heightAuto" : "widthAuto"}
+      />
     </picture>
   );
 }

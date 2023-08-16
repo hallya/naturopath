@@ -1,6 +1,8 @@
 .mainLayoutContainer {
+  align-content: baseline;
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
   box-shadow: var(--main-box-shadow);
   background: var(--light-bg);
 }
