@@ -222,6 +222,10 @@ a {
   letter-spacing: 1px;
 }
 
+main {
+  grid-area: main;
+}
+
 .firstLayer {
   z-index: 10;
 }

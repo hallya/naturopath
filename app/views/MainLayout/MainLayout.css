@@ -3,6 +3,9 @@
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
+  grid-template-areas:
+    "nav main"
+    "nav footer";
   box-shadow: var(--main-box-shadow);
   background: var(--light-bg);
 }

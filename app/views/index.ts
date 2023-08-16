@@ -1,4 +1,5 @@
 import type { LinksFunction } from "@vercel/remix";
+import { links as footerLinks } from "./Footer";
 import { links as leftNavigationLinks } from "./LeftNavigation";
 import { links as mainLayoutLinks } from "./MainLayout";
 import { links as pageHeaderLinks } from "./PageHeader";
@@ -10,6 +11,7 @@ export const links: LinksFunction = () => {
     ...mainLayoutLinks(),
     ...pageHeaderLinks(),
     ...pictureLinks(),
+    ...footerLinks(),
   ];
 };
 export { LeftNavigation } from "./LeftNavigation";

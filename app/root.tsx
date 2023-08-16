@@ -6,6 +6,7 @@ import type { MetaFunction } from "@vercel/remix";
 import globalStylesheet from "~/styles/global.css";
 import { navItems } from "./routes/navLinks";
 import tailwindStylesheet from "~/tailwind.css";
+import { Footer } from "./views/Footer";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -60,6 +61,7 @@ export default function App() {
         <MainLayout>
           <LeftNavigation navItems={navItems} />
           <Outlet />
+          <Footer/>
         </MainLayout>
         <ScrollRestoration />
         <Scripts />
