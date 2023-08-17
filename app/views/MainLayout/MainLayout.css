@@ -9,3 +9,7 @@
   box-shadow: var(--main-box-shadow);
   background: var(--light-bg);
 }
+
+@media screen and (max-width: 768px) {
+  
+}

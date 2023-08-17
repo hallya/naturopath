@@ -13,19 +13,17 @@ interface LeftNavigationProps {
 export function LeftNavigation(props: LeftNavigationProps) {
   const { navItems } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const mobileClass = `fixed bottom-0 right-3 left-3 rounded-lg p-5 pt-0 p ${
-    isOpen ? "" : "translate-y-full bottom-14 delay-100"
-  }`;
-  const desktopClass =
-    "sm:relative sm:right-0 sm:left-0 sm:top-0 sm:translate-y-0 sm:h-screen sm:rounded-none";
+  const desktopClass = "sm:translate-y-0";
 
   return (
     <nav
-      className={`${mobileClass} ${desktopClass} nav sm:p-5 m-auto bg-neutral-100 duration-200 firstLayer`}
+      className={`${
+        isOpen ? "menuOpened" : "menuClosed"
+      } ${desktopClass} nav sm:p-5 m-auto bg-neutral-100 duration-200 firstLayer`}
     >
       <button
         aria-label={`${isOpen ? "close" : "open"} menu`}
-        className="toggleMenu sm:hidden"
+        className="toggleMenu"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? "✺ fermer ✺" : "✺ menu ✺"}

@@ -1,17 +1,9 @@
-@keyframes zoomIn {
-  from {
-    transform: translateZ(-100px) scale(0);
+@keyframes bluredImage {
+  0% {
+    filter: blur(7px);
   }
-  to {
-    transform: translateZ(0px) scale(1);
-  }
-}
-@keyframes zoomOut {
-  from {
-    transform: translateZ(-50px) rotate(-180deg) scale(0);
-  }
-  to {
-    transform: translateZ(0px) rotate(0deg) scale(1);
+  100% {
+    filter: blur(0px);
   }
 }
 @keyframes fadeInOpacity {
@@ -35,23 +27,24 @@
   }
 }
 
-.homeContainer {
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-.pictureContainer {
-  margin: auto;
-  height: 90vh;
+.figure {
+  height: 100%;
+  display: flex;
   width: 98%;
-  overflow: hidden;
-  perspective: 50px;
-  perspective-origin: center;
+  margin: auto;
   position: relative;
 }
 
-.pictureContainer figcaption {
+.pictureContainer {
+  margin: auto;
+  overflow: hidden;
   position: absolute;
-  inset: 20% 0;
+  right: 2rem;
+  bottom: 2rem;
+  height: 30vh;
+}
+
+.figcaption {
   margin: auto;
   display: grid;
   align-content: space-around;
@@ -62,76 +55,85 @@
   text-align: center;
   text-shadow: 0 0px 0.6px black;
 }
-
 .pictureContainer > picture {
-  animation: 12s ease-in zoomOut;
+  animation: bluredImage 0.5s linear 4.8s backwards;
   overflow: hidden;
   transition: 1s;
 }
 
 .pictureFrame {
-  animation: 12s ease-in zoomIn;
   border-radius: 50%;
   position: absolute;
   box-shadow:
-    inset 0 0 20px 20px var(--light-bg),
+    inset 0 0 15px 25px var(--light-bg),
     0 0 1px 1500px var(--light-bg);
+  filter: blur(7px);
   margin: auto;
   inset: 0px;
-  width: 80vh;
-  height: 80vh;
+  width: 30vh;
+  height: 30vh;
 }
+
 .citation {
   animation: fadeInOpacity 4s linear 1s backwards;
 }
+
 .smokeLetter {
   animation: smoke 1.5s linear backwards;
   display: inline-block;
   will-change: filter;
 }
-.pictureContainer figcaption span:nth-child(1) {
+
+.figcaption span:nth-child(1) {
   animation-delay: 1.5s;
 }
-.pictureContainer figcaption span:nth-child(2) {
-  animation-delay: 2s;
+.figcaption span:nth-child(2) {
+  animation-delay: 1.7s;
 }
-.pictureContainer figcaption span:nth-child(3) {
+.figcaption span:nth-child(3) {
+  animation-delay: 1.9s;
+}
+.figcaption span:nth-child(4) {
+  animation-delay: 2.1s;
+}
+.figcaption span:nth-child(6) {
+  animation-delay: 2.3s;
+}
+.figcaption span:nth-child(7) {
   animation-delay: 2.5s;
 }
-.pictureContainer figcaption span:nth-child(4) {
-  animation-delay: 3s;
+.figcaption span:nth-child(8) {
+  animation-delay: 2.7s;
 }
-.pictureContainer figcaption span:nth-child(6) {
-  animation-delay: 3.5s;
+.figcaption span:nth-child(9) {
+  animation-delay: 2.9s;
 }
-.pictureContainer figcaption span:nth-child(7) {
-  animation-delay: 4s;
+.figcaption span:nth-child(10) {
+  animation-delay: 3.1s;
 }
-.pictureContainer figcaption span:nth-child(8) {
-  animation-delay: 4.5s;
-}
-.pictureContainer figcaption span:nth-child(9) {
-  animation-delay: 5s;
-}
-.pictureContainer figcaption span:nth-child(10) {
-  animation-delay: 5.5s;
-}
-.pictureContainer figcaption span:nth-child(11) {
-  animation-delay: 6s;
+.figcaption span:nth-child(11) {
+  animation-delay: 3.3s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+  .homeContainer {
+    grid-template-rows: auto;
+  }
   .pictureContainer {
     height: 80vw;
+    top: 0rem;
+    right: 0;
+    bottom: unset;
   }
   .pictureFrame {
-    width: 80vw;
-    height: 80vw;
+    width: 60vw;
+    height: 60vw;
+    filter: blur(25px);
     box-shadow:
       inset 0 0 20px 20px var(--light-bg),
       0 0 1px 300px var(--light-bg);
   }
-  .pictureContainer figcaption {
+  .figcaption {
     font-size: 1.3rem;
     line-height: initial;
     inset: 0;

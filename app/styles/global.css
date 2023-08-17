@@ -33,7 +33,7 @@
   --main-box-shadow: 4px 4px 8px hsl(29, 46%, 75%), -4px -4px 8px hsl(29, 46%, 98%);
   --main-text-shadow: 0.5px 0.5px 1px hsl(29, 46%, 100%), -0.5px -0.5px 1px hsl(29, 46%, 70%);
   --main-color: hsl(29, 46%, 25%);
-  --selected-color: hsl(29, 96%, 25%);
+  --selected-color: darkgoldenrod;
   --text-gradient: hsl(120, 46%, 35%);
   --font-heading:  "Playfair Display", "Times New Roman", Times, serif;
   --font-text: "Poppins", Arial, Helvetica, sans-serif;
@@ -185,37 +185,43 @@ h3,
 h4,
 h5,
 h6,
-figcaption,
-cite {
+figcaption, cite{
   margin: 0;
   font-family: var(--font-heading);
   letter-spacing: 2px;
 }
-
+h1,h2,h3,h4,h5,h6 {
+  color: darkgoldenrod;
+}
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
+  text-align: left;
 }
 
 h2 {
   font-size: 1.5rem;
   line-height: 2rem;
+  text-align: left;
 }
 
 h3 {
   font-size: 1.25rem;
   line-height: 1.75rem;
+  text-align: left;
 }
 
 h4 {
   font-size: 1.125rem;
   line-height: 1.75rem;
+  text-align: left;
 }
 
 h5,
 h6 {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  text-align: left;
 }
 
 a {

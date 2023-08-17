@@ -7,7 +7,7 @@
 .section_la_naturopathie {
   display: grid;
   row-gap: 24px;
-  max-width: 850px;
+  padding: 0 16px;
   margin: 0 auto;
   text-align: justify;
 }
@@ -29,10 +29,19 @@
 .section_la_naturopathie ul {
   list-style: georgian;
   list-style-position: inside;
+  padding-left: 16px;
+  text-align: left;
 }
 
-@media screen and (max-width: 639px) {
+@media screen and (min-width: 768px) {
   .section_la_naturopathie {
-    padding: 0 16px;
+    max-width: 550px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .section_la_naturopathie {
+    max-width: 850px;
+    padding: 0;
   }
 }

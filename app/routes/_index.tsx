@@ -1,7 +1,5 @@
 import type { LinksFunction } from "@vercel/remix";
-import { PageHeader, Picture } from "../views";
-import { mapNavLinks } from "./navLinks";
-import { useLocation } from "@remix-run/react";
+import { Picture } from "../views";
 import styles from "~/styles/_index.styles.css";
 
 export const links: LinksFunction = () => {
@@ -9,19 +7,21 @@ export const links: LinksFunction = () => {
 };
 
 export default function IndexRoute() {
-  const { pathname } = useLocation();
   return (
-    <main className="homeContainer">
-      <PageHeader title={mapNavLinks[pathname].pageTitle} />
-      <figure className="pictureContainer">
-        <Picture
-          alt="Dew on a dandelion"
-          srcSets={[{ media: "(max-width: 360px)", srcSet: "/img/mobile/dew_on_a_dandelion.jpg" }]}
-          src="/img/desktop/dew_on_a_dandelion.jpg"
-          sizeAuto="width"
-        />
-        <div className="pictureFrame" />
-        <figcaption>
+    <main>
+      <figure className="figure">
+        <div className="pictureContainer">
+          <Picture
+            alt="Dew on a dandelion"
+            srcSets={[
+              { media: "(max-width: 360px)", srcSet: "/img/mobile/dew_on_a_dandelion.jpg" },
+            ]}
+            src="/img/desktop/dew_on_a_dandelion.jpg"
+            sizeAuto="width"
+          />
+          <div className="pictureFrame" />
+        </div>
+        <figcaption className="figcaption">
           <cite className="citation">
             “Les graines d’un vieillissement en bonne santé se sèment tôt
           </cite>

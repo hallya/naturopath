@@ -1,13 +1,24 @@
 .nav {
+  border-radius: 0.5rem;
   grid-area: nav;
-  background: var(--lighter-bg);
-  box-shadow: var(--main-box-shadow);;
+  background: var(--light-bg);
+  box-shadow: var(--main-box-shadow);
   display: grid;
   row-gap: 16px;
   grid-auto-rows: max-content;
-  height: 97%;
+  position: fixed;
+  padding: 0 1.25rem 1.25rem;
+  left: 0.75rem;
+  right: 0.75rem;
 }
-
+.menuClosed {
+  bottom: 3.5rem;
+  transform: translateY(100%);
+  transition-delay: .5s;
+}
+.menuOpened {
+  bottom: 0;
+}
 .toggleMenu {
   padding: 20px 16px;
   width: 100%;
@@ -26,7 +37,7 @@
 .pressed:hover,
 .pressed span,
 .pressed:hover span {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s linear;
 }
 
 .link {
@@ -45,9 +56,15 @@
   text-shadow: var(--main-text-shadow);
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1200px) {
   .nav {
-    box-shadow: var(--main-box-shadow);
-    height: 100%;
+    box-shadow: unset;
+    padding: 1.25rem;
+    position: relative;
+    bottom: 0;
+    transform: translateY(0);
+  }
+  .toggleMenu {
+    display: none;
   }
 }
