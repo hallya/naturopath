@@ -17,7 +17,7 @@ export default function IndexRoute() {
           playsInline
           className="backgroundVideo"
         >
-          <source src="/video/4779866-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          <source src="/video/homepage-bg-video.mp4" type="video/mp4" />
         </video>
       </div>
 
