@@ -1,34 +1,99 @@
 .nav {
-  border-radius: 0.5rem;
+  /* Positioning */
+  position: fixed;
+  left: 5vw;
+  right: 5vw;
+  bottom: 3.5rem;
+  z-index: var(--z-navigation);
+  
+  /* Layout */
   grid-area: nav;
+  display: grid;
+  grid-auto-rows: max-content;
+  row-gap: 16px;
+  
+  /* Box Model */
+  margin: auto;
+  padding: 0 1.25rem 1.25rem;
+  border-radius: 0.5rem;
+  
+  /* Visual */
   background: var(--light-bg);
   box-shadow: var(--main-box-shadow);
-  display: grid;
-  row-gap: 16px;
-  grid-auto-rows: max-content;
-  position: fixed;
-  padding: 0 1.25rem 1.25rem;
-  left: 0.75rem;
-  right: 0.75rem;
+  opacity: 0.9;
+  
+  /* Animation */
+  transition-duration: 200ms;
 }
+
 .menuClosed {
+  /* Positioning */
   bottom: 3.5rem;
-  transform: translateY(100%);
-  transition-delay: .5s;
+  
+  /* Transform */
+  transform: translateY(87%);
+  
+  /* Animation */
+  transition-delay: 0.5s;
 }
+
 .menuOpened {
+  /* Positioning */
   bottom: 0;
 }
+
 .toggleMenu {
-  padding: 20px 16px;
+  /* Box Model */
   width: 100%;
+  padding: 20px 16px;
+  
+  /* Typography */
+  font-size: 1rem;
+  
+  /* Animation */
   transition: 0.2s;
 }
 
 .listContainer {
+  /* Layout */
   display: grid;
   grid-auto-flow: row;
   grid-auto-rows: auto;
+  gap: 8px;
+  
+  /* Box Model */
+  padding-top: 0;
+}
+
+.link {
+  /* Layout */
+  display: block;
+  
+  /* Box Model */
+  width: 100%;
+  min-width: max-content;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  
+  /* Visual */
+  background: initial;
+  
+  /* Typography */
+  font-size: 2rem;
+}
+
+.pressed,
+.pressed:hover,
+.link:hover {
+  /* Visual */
+  box-shadow: var(--main-box-shadow);
+}
+
+.pressed span,
+.pressed:hover span {
+  /* Typography */
+  color: var(--selected-color);
+  text-shadow: var(--main-text-shadow);
 }
 
 .link,
@@ -37,34 +102,60 @@
 .pressed:hover,
 .pressed span,
 .pressed:hover span {
+  /* Animation */
   transition: all 0.2s linear;
 }
 
-.link {
-  background: initial;
+/* Tablet */
+@media screen and (min-width: 640px) {
+  .nav {
+    /* Box Model */
+    padding: 1.25rem;
+  }
+  
+  .toggleMenu {
+    /* Typography */
+    font-size: 3rem;
+  }
+  
+  .link {
+    /* Typography */
+    font-size: 3rem;
+  }
 }
 
-.pressed,
-.pressed:hover,
-.link:hover {
-  box-shadow: var(--main-box-shadow);
-}
-
-.pressed span,
-.pressed:hover span {
-  color: var(--selected-color);
-  text-shadow: var(--main-text-shadow);
-}
-
+/* Desktop */
 @media screen and (min-width: 1200px) {
   .nav {
-    box-shadow: unset;
+    /* Positioning */
+    left: 16px;
+    right: unset;
+    top: 25%;
+    bottom: unset;
+    
+    /* Box Model */
     padding: 1.25rem;
-    position: relative;
-    bottom: 0;
+    width: max-content;
+    
+    /* Visual */
+    opacity: 1;
+    
+    /* Transform */
     transform: translateY(0);
   }
+  
   .toggleMenu {
+    /* Layout */
     display: none;
+  }
+  
+  .link {
+    /* Typography */
+    font-size: 1.125rem;
+  }
+  
+  .menuClosed {
+    /* Transform */
+    transform: none;
   }
 }

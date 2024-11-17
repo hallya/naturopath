@@ -1,17 +1,22 @@
 .picture {
+  /* Layout */
   display: block;
+  
+  /* Box model */
   height: 100%;
   width: 100%;
 }
 
 .heightAuto {
+  /* Box model */
   height: auto;
   margin: auto;
   width: 100%;
 }
 
 .widthAuto {
+  /* Box model */
   height: 100%;
-  margin: auto;
   width: auto;
+  margin: auto;
 }

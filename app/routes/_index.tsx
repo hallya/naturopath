@@ -8,37 +8,28 @@ export const links: LinksFunction = () => {
 
 export default function IndexRoute() {
   return (
-    <main>
-      <figure className="figure">
-        <div className="pictureContainer">
-          <Picture
-            alt="Dew on a dandelion"
-            srcSets={[
-              { media: "(max-width: 360px)", srcSet: "/img/mobile/dew_on_a_dandelion.jpg" },
-            ]}
-            src="/img/desktop/dew_on_a_dandelion.jpg"
-            sizeAuto="width"
-          />
-          <div className="pictureFrame" />
+    <main className="mainContainer">
+      <div className="videoContainer">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="backgroundVideo"
+        >
+          <source src="/video/4779866-hd_1920_1080_30fps.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <section className="section">
+        <div className="logo">
+          <Picture alt="" src="/img/logo.webp" sizeAuto="height" loading="eager" />
         </div>
-        <figcaption className="figcaption">
-          <cite className="citation">
-            “Les graines d’un vieillissement en bonne santé se sèment tôt
-          </cite>
-          <div className="author">
-            <span className="smokeLetter">K</span>
-            <span className="smokeLetter">o</span>
-            <span className="smokeLetter">f</span>
-            <span className="smokeLetter">i</span>
-            <span> </span>
-            <span className="smokeLetter">A</span>
-            <span className="smokeLetter">n</span>
-            <span className="smokeLetter">n</span>
-            <span className="smokeLetter">a</span>
-            <span className="smokeLetter">n</span>
-          </div>
-        </figcaption>
-      </figure>
+        <h1 className="title">LES SOINS DE LEA</h1>
+        <h2 className="text">
+          Praticienne en massage bien-être & énergétique à Bordeaux (33)
+        </h2>
+      </section>
     </main>
   );
 }

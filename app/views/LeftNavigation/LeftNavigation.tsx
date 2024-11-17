@@ -13,31 +13,45 @@ interface LeftNavigationProps {
 export function LeftNavigation(props: LeftNavigationProps) {
   const { navItems } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const desktopClass = "sm:translate-y-0";
 
   return (
-    <nav
-      className={`${
-        isOpen ? "menuOpened" : "menuClosed"
-      } ${desktopClass} nav sm:p-5 m-auto bg-neutral-100 duration-200 firstLayer`}
+    <nav 
+      className={`nav ${isOpen ? "menuOpened" : "menuClosed"}`}
+      role="navigation"
+      aria-label="Menu principal"
     >
       <button
-        aria-label={`${isOpen ? "close" : "open"} menu`}
+        aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-expanded={isOpen}
+        aria-controls="navigation-menu"
+        aria-haspopup="true"
         className="toggleMenu"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? "✺ fermer ✺" : "✺ menu ✺"}
+        <span aria-hidden="true">
+          {isOpen ? "✺ fermer ✺" : "✺ menu ✺"}
+        </span>
       </button>
-      <ul className="pt-0 gap-[8px] listContainer">
+      <ul 
+        id="navigation-menu"
+        className="listContainer"
+        role="menubar"
+        aria-hidden={!isOpen}
+      >
         {navItems.map(item => {
           return (
-            <li key={item.id}>
+            <li 
+              key={item.id}
+              role="none"
+            >
               <NavLink
                 to={item.href}
                 className={({ isActive }) =>
-                  `link p-3 w-full min-w-max block rounded-lg ${isActive ? "pressed" : ""}`
+                  `link ${isActive ? "pressed" : ""}`
                 }
                 onClick={() => setIsOpen(!isOpen)}
+                role="menuitem"
+                aria-current="page"
               >
                 <span>{item.pageTitle}</span>
               </NavLink>

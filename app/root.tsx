@@ -2,8 +2,8 @@ import type { LinksFunction } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import type { MetaFunction } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
+
 import globalStylesheet from "~/styles/global.css";
-import tailwindStylesheet from "~/tailwind.css";
 import { navItems } from "./routes/navLinks";
 import { LeftNavigation, MainLayout, links as viewsLinks } from "./views";
 import { Footer } from "./views/Footer";
@@ -22,7 +22,6 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => {
   return [
-    { rel: "stylesheet", href: tailwindStylesheet },
     { rel: "stylesheet", href: globalStylesheet },
     {
       rel: "preload",

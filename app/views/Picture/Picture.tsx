@@ -3,7 +3,7 @@ import stylesheet from "./Picture.css";
 
 type FileName = `${string}.jpg` | `${string}.webp` | `${string}.png`;
 
-type Pathname = `${"/img/desktop" | "/img/mobile"}/${FileName}`;
+type Pathname = `/img/${FileName}`;
 
 type Media = "(min-width: 1200px)" | "(min-width: 768px)" | "(max-width: 360px)";
 
@@ -12,12 +12,13 @@ export interface PictureProps {
   srcSets?: { srcSet: Pathname; media: Media }[];
   src: Pathname;
   sizeAuto: "height" | "width";
+  loading?: "eager" | "lazy";
 }
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 
 export function Picture(props: PictureProps) {
-  const { alt, srcSets = [], src, sizeAuto } = props;
+  const { alt, srcSets = [], src, sizeAuto, loading = "lazy" } = props;
 
   return (
     <picture className="picture">
@@ -27,7 +28,7 @@ export function Picture(props: PictureProps) {
       <img
         alt={alt}
         src={src}
-        loading="lazy"
+        loading={loading}
         className={sizeAuto === "height" ? "heightAuto" : "widthAuto"}
       />
     </picture>
