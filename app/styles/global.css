@@ -46,6 +46,10 @@
   --z-modal: 300;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 div,

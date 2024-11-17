@@ -1,12 +1,10 @@
 .mainContainer {
   /* Positioning */
   position: relative;
-  
+
   /* Box Model */
   height: 100vh;
-  
-  /* Visual */
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .videoContainer {
@@ -14,32 +12,35 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-base);
+
+  /* Visual */
+  background: var(--light-bg);
 }
 
 .backgroundVideo {
   /* Box Model */
   width: 100%;
   height: 100%;
-  
+
   /* Visual */
   object-fit: cover;
-  opacity: 0.05;
+  opacity: 0.03;
 }
 
 .section {
   /* Positioning */
   position: relative;
   z-index: var(--z-content);
-  
+
   /* Layout */
   display: grid;
   align-content: center;
   grid-auto-rows: max-content;
   row-gap: 16px;
-  
+
   /* Box Model */
   height: 100vh;
-  width: 650px;
+  padding: 0 calc(50vw - 650px / 2); /* Allow for a centered container and being able to scroll anywhere in the viewport whereas with width it would be cut off */
   margin: auto;
 }
 

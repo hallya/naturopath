@@ -1,6 +1,6 @@
-import { NavLink } from "@remix-run/react";
+import { NavLink, useLocation } from "@remix-run/react";
 import type { LinksFunction } from "@vercel/remix";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { navItems } from "../../routes/navLinks";
 import stylesheet from "./LeftNavigation.css";
 
@@ -13,9 +13,35 @@ interface LeftNavigationProps {
 export function LeftNavigation(props: LeftNavigationProps) {
   const { navItems } = props;
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("#home");
+
+  const location = useLocation();
+  const hash = location.hash || "#home";
+
+  useEffect(() => {
+    setActiveHash(hash);
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [hash]);
+
+  const handleClick = useCallback(
+    (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      event.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState({}, "", href);
+        setActiveHash(href);
+        setIsOpen(false);
+      }
+    },
+    [setIsOpen],
+  );
 
   return (
-    <nav 
+    <nav
       className={`nav ${isOpen ? "menuOpened" : "menuClosed"}`}
       role="navigation"
       aria-label="Menu principal"
@@ -28,36 +54,22 @@ export function LeftNavigation(props: LeftNavigationProps) {
         className="toggleMenu"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span aria-hidden="true">
-          {isOpen ? "✺ fermer ✺" : "✺ menu ✺"}
-        </span>
+        <span aria-hidden="true">{isOpen ? "✺ fermer ✺" : "✺ menu ✺"}</span>
       </button>
-      <ul 
-        id="navigation-menu"
-        className="listContainer"
-        role="menubar"
-        aria-hidden={!isOpen}
-      >
-        {navItems.map(item => {
-          return (
-            <li 
-              key={item.id}
-              role="none"
+      <ul id="navigation-menu" className="listContainer" role="menubar" aria-hidden={!isOpen}>
+        {navItems.map(item => (
+          <li key={item.id} role="none">
+            <NavLink
+              to={item.href}
+              className={`link ${activeHash === item.href ? "pressed" : ""}`}
+              onClick={e => handleClick(e, item.href)}
+              role="menuitem"
+              aria-current={activeHash === item.href}
             >
-              <NavLink
-                to={item.href}
-                className={({ isActive }) =>
-                  `link ${isActive ? "pressed" : ""}`
-                }
-                onClick={() => setIsOpen(!isOpen)}
-                role="menuitem"
-                aria-current="page"
-              >
-                <span>{item.pageTitle}</span>
-              </NavLink>
-            </li>
-          );
-        })}
+              <span>{item.pageTitle}</span>
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

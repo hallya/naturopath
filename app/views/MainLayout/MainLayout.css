@@ -1,9 +1,5 @@
 .mainLayoutContainer {
   /* Positioning */
-  position: relative;
-  
-  /* Visual */
-  background: var(--light-bg);
-  box-shadow: var(--main-box-shadow);
+  position: relative; 
 }
 
