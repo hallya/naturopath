@@ -5,7 +5,6 @@ export function useSetUrlHashOnIntersection() {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          console.log(entry.intersectionRatio);
           if (entry.isIntersecting) {
             window.history.replaceState({}, "", `#${entry.target.id}`);
           }
@@ -17,7 +16,6 @@ export function useSetUrlHashOnIntersection() {
     );
 
     document.querySelectorAll("section[id]").forEach(section => {
-      console.log(section);
       observer.observe(section);
     });
 

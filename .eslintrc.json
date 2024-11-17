@@ -33,6 +33,7 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "import/no-duplicates": "error",
+    "no-console": "error",
     "import/order": [
       "error",
       {
