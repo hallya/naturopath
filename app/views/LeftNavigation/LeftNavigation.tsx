@@ -1,8 +1,8 @@
-import type { LinksFunction } from "@vercel/remix";
 import { NavLink } from "@remix-run/react";
+import type { LinksFunction } from "@vercel/remix";
+import { useState } from "react";
 import type { navItems } from "../../routes/navLinks";
 import stylesheet from "./LeftNavigation.css";
-import { useState } from "react";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 

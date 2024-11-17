@@ -1,6 +1,6 @@
 import type { LinksFunction } from "@vercel/remix";
-import { Picture } from "../views";
 import styles from "~/styles/_index.styles.css";
+import { Picture } from "../views";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];

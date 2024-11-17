@@ -1,8 +1,8 @@
+import { useLocation } from "@remix-run/react";
 import type { LinksFunction } from "@vercel/remix";
 import { PageHeader } from "../../views";
 import { mapNavLinks } from "../navLinks";
 import styles from "./la_naturopathie.styles.css";
-import { useLocation } from "@remix-run/react";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
@@ -81,7 +81,7 @@ export default function Route() {
 
           <li>Phytothérapie (Traitement par l’usage des plantes)</li>
 
-          <li>Aromathérapie (Traitement par l'usage des huiles essentielles)</li>
+          <li>Aromathérapie (Traitement par l&apos;usage des huiles essentielles)</li>
 
           <li>
             Biothérapies (Utilisation des oligo-éléments, de la gemmothérapie et de la

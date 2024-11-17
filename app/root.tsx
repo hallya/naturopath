@@ -1,18 +1,24 @@
-import { LeftNavigation, MainLayout, links as viewsLinks } from "./views";
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
-import { Analytics } from "@vercel/analytics/react";
 import type { LinksFunction } from "@remix-run/node";
-import type { MetaFunction } from "@vercel/remix";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import type { MetaFunction } from "@remix-run/react";
+import { Analytics } from "@vercel/analytics/react";
 import globalStylesheet from "~/styles/global.css";
-import { navItems } from "./routes/navLinks";
 import tailwindStylesheet from "~/tailwind.css";
+import { navItems } from "./routes/navLinks";
+import { LeftNavigation, MainLayout, links as viewsLinks } from "./views";
 import { Footer } from "./views/Footer";
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "Léa Dulac - Naturopathe",
-  viewport: "width=device-width,initial-scale=1",
-});
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Léa Dulac - Naturopathe",
+    },
+    {
+      name: "description",
+      content: "Léa Dulac - Naturopathe",
+    },
+  ];
+};
 
 export const links: LinksFunction = () => {
   return [
@@ -61,7 +67,7 @@ export default function App() {
         <MainLayout>
           <LeftNavigation navItems={navItems} />
           <Outlet />
-          <Footer/>
+          <Footer />
         </MainLayout>
         <ScrollRestoration />
         <Scripts />
