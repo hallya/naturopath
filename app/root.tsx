@@ -12,6 +12,8 @@ export const meta: MetaFunction = () => {
   return [
     {
       title: "Léa Dulac - Naturopathe",
+      charset: "utf-8",
+      viewport: "width=device-width,initial-scale=1",
     },
     {
       name: "description",
