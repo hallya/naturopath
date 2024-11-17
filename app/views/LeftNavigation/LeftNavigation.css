@@ -70,7 +70,6 @@
   display: block;
   
   /* Box Model */
-  width: 100%;
   min-width: max-content;
   padding: 0.75rem;
   border-radius: 0.5rem;

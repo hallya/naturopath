@@ -4,7 +4,6 @@
   
   /* Box Model */
   height: 100vh;
-  padding: 1.25rem;
   
   /* Visual */
   overflow: hidden;
@@ -40,6 +39,8 @@
   
   /* Box Model */
   height: 100vh;
+  width: 650px;
+  margin: auto;
 }
 
 .title,
