@@ -1,0 +1,32 @@
+{
+  "rules": [
+    {
+      "languages": ["typescript"],
+      "rule": "Use TypeScript for all code. Prefer interfaces over types. Avoid enums and use maps."
+    },
+    {
+      "languages": ["typescript", "react"],
+      "rule": "Use functional components and TypeScript interfaces. Utilize declarative JSX."
+    },
+    {
+      "languages": ["typescript"],
+      "rule": "Enable strict typing settings in tsconfig.json, and avoid using 'any'."
+    },
+    {
+      "files": ["*.tsx"],
+      "rule": "Avoid Tailwind CSS for responsive design. Implement a mobile-first approach. Use understandable CSS classes and use .css files for styles."
+    },
+    {
+      "files": ["*.tsx"],
+      "rule": "Minimize 'useEffect' and 'useState'. Favor static data and props where possible to optimize static builds."
+    },
+    {
+      "files": ["*"],
+      "rule": "Use eslint config and rules."
+    },
+    {
+      "files": ["*.tsx"],
+      "rule": "Optimize images using WebP format and lazy loading strategies."
+    }
+  ]
+}
