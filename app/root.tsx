@@ -1,12 +1,9 @@
 import type { LinksFunction } from "@remix-run/node";
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { Links, LiveReload, Meta, Outlet, Scripts } from "@remix-run/react";
 import type { MetaFunction } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
-
-import { SectionRefsProvider } from '~/contexts/SectionRefsContext';
 import globalStylesheet from "~/styles/global.css";
-import { navItems } from "./routes/navLinks";
-import { LeftNavigation, MainLayout, links as viewsLinks } from "./views";
+import { MainLayout, links as viewsLinks } from "./views";
 import { Footer } from "./views/Footer";
 
 export const meta: MetaFunction = () => {
@@ -66,14 +63,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <SectionRefsProvider>
-          <MainLayout>
-            <LeftNavigation navItems={navItems} />
-            <Outlet />
-            <Footer />
-          </MainLayout>
-        </SectionRefsProvider>
-        <ScrollRestoration />
+        <MainLayout>
+          <Outlet />
+          <Footer />
+        </MainLayout>
         <Scripts />
         <LiveReload />
         <Analytics />

@@ -1,82 +1,57 @@
-import { NavLink, useLocation } from "@remix-run/react";
+import { useLocation, NavLink } from "@remix-run/react";
 import type { LinksFunction } from "@vercel/remix";
-import { useCallback, useEffect, useState, useMemo } from "react";
-import { useSectionRefs } from "~/contexts/SectionRefsContext";
-import type { navItems } from "../../routes/navLinks";
+import { useEffect, useState, useMemo } from "react";
 import stylesheet from "./LeftNavigation.css";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 
 interface LeftNavigationProps {
-  navItems: typeof navItems;
+  sections: { title: string; ref: React.RefObject<HTMLElement>; hash: string }[];
 }
 
-export function LeftNavigation({ navItems }: LeftNavigationProps) {
-  const refs = useSectionRefs();
-  const [isOpen, setIsOpen] = useState(false);
+export function LeftNavigation({ sections }: LeftNavigationProps) {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const [activeHash, setActiveHash] = useState(location.hash || "#home");
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {
-      setActiveHash(window.location.hash || "#home");
+      setActiveHash(window.location.hash);
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   useEffect(() => {
-    if (document.readyState === "complete") {
-      setIsPageLoaded(true);
-    } else {
-      const handleLoad = () => setIsPageLoaded(true);
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
+    const sectionId = location.hash.substring(1);
+    const ref = sections.find(section => section.hash === sectionId)?.ref;
+
+    if (ref?.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, []);
+  }, [location.hash, sections]);
 
-  const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      event.preventDefault();
-      if (isPageLoaded) {
-        const sectionId = href.substring(1);
-        const ref = refs[sectionId as keyof typeof refs]?.current;
-        if (ref) {
-          ref.scrollIntoView({ behavior: "smooth" });
-          window.history.pushState({}, "", href);
-          setActiveHash(href);
-          setIsOpen(false);
-        }
-      }
-    },
-    [refs, isPageLoaded, setIsOpen],
-  );
-
-  const navigationItems = useMemo(
-    () =>
-      navItems.map(item => (
-        <li key={item.id} role="none">
-          <NavLink
-            to={item.href}
-            className={`link ${activeHash === item.href ? "pressed" : ""}`}
-            onClick={e => handleClick(e, item.href)}
-            role="menuitem"
-            aria-current={activeHash === item.href}
-          >
-            <span>{item.pageTitle}</span>
-          </NavLink>
-        </li>
-      )),
-    [activeHash, handleClick, navItems],
-  );
+  const navigationItems = useMemo(() => {
+    return sections.map(({ title, hash }) => (
+      <li key={hash} role="none">
+        <NavLink
+          to={`#${hash}`}
+          className={`link${activeHash === `#${hash}` ? " pressed" : ""}`}
+          role="menuitem"
+          aria-current={activeHash === `#${hash}`}
+        >
+          <span>{title}</span>
+        </NavLink>
+      </li>
+    ));
+  }, [sections, activeHash]);
 
   return (
     <nav
-      className={`nav ${isOpen ? "menuOpened" : "menuClosed"}`}
+      className={`nav${isOpen ? " menuOpened" : " menuClosed"}`}
       role="navigation"
-      aria-label="Menu principal"
+      aria-label="Navigation de la page actuelle"
     >
       <button
         aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
