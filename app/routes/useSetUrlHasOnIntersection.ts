@@ -21,11 +21,12 @@ export function useSetUrlHashOnIntersection(sectionRefs: React.RefObject<HTMLEle
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             window.history.replaceState({}, "", `#${entry.target.id}`);
+            window.dispatchEvent(new Event('hashchange'));
           }
         });
       },
       {
-        threshold: 0.9,
+        threshold: 0.8,
       },
     );
 

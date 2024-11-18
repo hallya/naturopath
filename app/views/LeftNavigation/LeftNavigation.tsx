@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "@remix-run/react";
 import type { LinksFunction } from "@vercel/remix";
-import { useCallback, useEffect, useState } from "react";
-import { useSectionRefs } from '~/contexts/SectionRefsContext';
+import { useCallback, useEffect, useState, useMemo } from "react";
+import { useSectionRefs } from "~/contexts/SectionRefsContext";
 import type { navItems } from "../../routes/navLinks";
 import stylesheet from "./LeftNavigation.css";
 
@@ -14,34 +14,33 @@ interface LeftNavigationProps {
 export function LeftNavigation({ navItems }: LeftNavigationProps) {
   const refs = useSectionRefs();
   const [isOpen, setIsOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("#home");
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
   const location = useLocation();
-  const hash = location.hash || "#home";
+  const [activeHash, setActiveHash] = useState(location.hash || "#home");
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   useEffect(() => {
-    if (document.readyState === 'complete') {
-      setIsPageLoaded(true);
-    } else {
-      window.addEventListener('load', () => setIsPageLoaded(true));
-      return () => window.removeEventListener('load', () => setIsPageLoaded(true));
-    }
+    const handleHashChange = () => {
+      setActiveHash(window.location.hash || "#home");
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   useEffect(() => {
-    setActiveHash(hash);
-    if (isPageLoaded) {
-      const sectionId = hash.substring(1);
-      const ref = refs[sectionId as keyof typeof refs]?.current;
-      if (ref) {
-        ref.scrollIntoView({ behavior: "smooth" });
-      }
+    if (document.readyState === "complete") {
+      setIsPageLoaded(true);
+    } else {
+      const handleLoad = () => setIsPageLoaded(true);
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
     }
-  }, [hash, refs, isPageLoaded]);
+  }, []);
 
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       event.preventDefault();
+      if (isPageLoaded) {
         const sectionId = href.substring(1);
         const ref = refs[sectionId as keyof typeof refs]?.current;
         if (ref) {
@@ -49,9 +48,28 @@ export function LeftNavigation({ navItems }: LeftNavigationProps) {
           window.history.pushState({}, "", href);
           setActiveHash(href);
           setIsOpen(false);
+        }
       }
     },
-    [refs, setIsOpen],
+    [refs, isPageLoaded, setIsOpen],
+  );
+
+  const navigationItems = useMemo(
+    () =>
+      navItems.map(item => (
+        <li key={item.id} role="none">
+          <NavLink
+            to={item.href}
+            className={`link ${activeHash === item.href ? "pressed" : ""}`}
+            onClick={e => handleClick(e, item.href)}
+            role="menuitem"
+            aria-current={activeHash === item.href}
+          >
+            <span>{item.pageTitle}</span>
+          </NavLink>
+        </li>
+      )),
+    [activeHash, handleClick, navItems],
   );
 
   return (
@@ -71,19 +89,7 @@ export function LeftNavigation({ navItems }: LeftNavigationProps) {
         <span aria-hidden="true">{isOpen ? "✺ fermer ✺" : "✺ menu ✺"}</span>
       </button>
       <ul id="navigation-menu" className="listContainer" role="menubar" aria-hidden={!isOpen}>
-        {navItems.map(item => (
-          <li key={item.id} role="none">
-            <NavLink
-              to={item.href}
-              className={`link ${activeHash === item.href ? "pressed" : ""}`}
-              onClick={e => handleClick(e, item.href)}
-              role="menuitem"
-              aria-current={activeHash === item.href}
-            >
-              <span>{item.pageTitle}</span>
-            </NavLink>
-          </li>
-        ))}
+        {navigationItems}
       </ul>
     </nav>
   );
