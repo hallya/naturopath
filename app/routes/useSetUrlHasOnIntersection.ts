@@ -1,7 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export function useSetUrlHashOnIntersection() {
+export function useSetUrlHashOnIntersection(sectionRefs: React.RefObject<HTMLElement>[]) {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+
   useEffect(() => {
+    if (document.readyState === 'complete') {
+      setIsPageLoaded(true);
+    } else {
+      const handleLoad = () => setIsPageLoaded(true);
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isPageLoaded) return;
+
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -15,10 +29,12 @@ export function useSetUrlHashOnIntersection() {
       },
     );
 
-    document.querySelectorAll("section[id]").forEach(section => {
-      observer.observe(section);
+    sectionRefs.forEach(ref => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [sectionRefs, isPageLoaded]);
 }

@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "@remix-run/react";
 import type { LinksFunction } from "@vercel/remix";
 import { useCallback, useEffect, useState } from "react";
+import { useSectionRefs } from '~/contexts/SectionRefsContext';
 import type { navItems } from "../../routes/navLinks";
 import stylesheet from "./LeftNavigation.css";
 
@@ -10,34 +11,47 @@ interface LeftNavigationProps {
   navItems: typeof navItems;
 }
 
-export function LeftNavigation(props: LeftNavigationProps) {
-  const { navItems } = props;
+export function LeftNavigation({ navItems }: LeftNavigationProps) {
+  const refs = useSectionRefs();
   const [isOpen, setIsOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
-
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
   const location = useLocation();
   const hash = location.hash || "#home";
 
   useEffect(() => {
-    setActiveHash(hash);
-    const element = document.querySelector(hash);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (document.readyState === 'complete') {
+      setIsPageLoaded(true);
+    } else {
+      window.addEventListener('load', () => setIsPageLoaded(true));
+      return () => window.removeEventListener('load', () => setIsPageLoaded(true));
     }
-  }, [hash]);
+  }, []);
+
+  useEffect(() => {
+    setActiveHash(hash);
+    if (isPageLoaded) {
+      const sectionId = hash.substring(1);
+      const ref = refs[sectionId as keyof typeof refs]?.current;
+      if (ref) {
+        ref.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash, refs, isPageLoaded]);
 
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       event.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        window.history.pushState({}, "", href);
-        setActiveHash(href);
-        setIsOpen(false);
+        const sectionId = href.substring(1);
+        const ref = refs[sectionId as keyof typeof refs]?.current;
+        if (ref) {
+          ref.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState({}, "", href);
+          setActiveHash(href);
+          setIsOpen(false);
       }
     },
-    [setIsOpen],
+    [refs, setIsOpen],
   );
 
   return (

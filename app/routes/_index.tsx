@@ -1,4 +1,5 @@
 import type { LinksFunction } from "@vercel/remix";
+import { useSectionRefs } from "~/contexts/SectionRefsContext";
 import styles from "~/styles/_index.styles.css";
 import { Picture } from "../views";
 import { useSetUrlHashOnIntersection } from "./useSetUrlHasOnIntersection";
@@ -8,7 +9,9 @@ export const links: LinksFunction = () => {
 };
 
 export default function IndexRoute() {
-  useSetUrlHashOnIntersection();
+  const refs = useSectionRefs();
+
+  useSetUrlHashOnIntersection(Object.values(refs));
 
   return (
     <main className="mainContainer">
@@ -18,7 +21,7 @@ export default function IndexRoute() {
         </video>
       </div>
 
-      <section className="section" id="home">
+      <section ref={refs.home} className="section" id="home">
         <div className="logo">
           <Picture alt="" src="/img/logo.webp" sizeAuto="height" loading="eager" />
         </div>
@@ -26,27 +29,27 @@ export default function IndexRoute() {
         <h2 className="text">Praticienne en massage bien-être & énergétique à Bordeaux (33)</h2>
       </section>
 
-      <section className="section" id="la-naturopathie">
+      <section ref={refs["la-naturopathie"]} className="section" id="la-naturopathie">
         <h2 className="text">La naturopathie</h2>
       </section>
 
-      <section className="section" id="parcours">
+      <section ref={refs.parcours} className="section" id="parcours">
         <h2 className="text">Parcours</h2>
       </section>
 
-      <section className="section" id="reflexologie-plantaire">
+      <section ref={refs["reflexologie-plantaire"]} className="section" id="reflexologie-plantaire">
         <h2 className="text">Réflexologie plantaire</h2>
       </section>
 
-      <section className="section" id="massage">
+      <section ref={refs.massage} className="section" id="massage">
         <h2 className="text">Massage</h2>
       </section>
 
-      <section className="section" id="tarifs">
+      <section ref={refs.tarifs} className="section" id="tarifs">
         <h2 className="text">Tarifs</h2>
       </section>
 
-      <section className="section" id="contact">
+      <section ref={refs.contact} className="section" id="contact">
         <h2 className="text">Plan d&apos;accès et contact</h2>
       </section>
     </main>

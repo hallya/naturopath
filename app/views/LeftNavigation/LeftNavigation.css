@@ -22,6 +22,9 @@
   box-shadow: var(--main-box-shadow);
   opacity: 0.9;
   
+  /* Transform */
+  transform: translateY(87%);
+  
   /* Animation */
   transition-duration: 200ms;
 }
@@ -30,9 +33,6 @@
   /* Positioning */
   bottom: 3.5rem;
   
-  /* Transform */
-  transform: translateY(87%);
-  
   /* Animation */
   transition-delay: 0.5s;
 }
@@ -40,6 +40,9 @@
 .menuOpened {
   /* Positioning */
   bottom: 0;
+
+  /* Transform */
+  transform: translateY(0);
 }
 
 .toggleMenu {
@@ -151,10 +154,5 @@
   .link {
     /* Typography */
     font-size: 1.125rem;
-  }
-  
-  .menuClosed {
-    /* Transform */
-    transform: none;
   }
 }
