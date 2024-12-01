@@ -31,6 +31,7 @@
   --lighter-bg: hsl(29, 46%, 90%);
   --light-bg: hsl(29, 46%, 89%);
   --main-box-shadow: 4px 4px 8px hsl(29, 46%, 75%), -4px -4px 8px hsl(29, 46%, 98%);
+  --main-box-shadow2: 2px 2px 4px hsl(29, 46%, 75%), -2px -2px 4px hsl(29, 46%, 98%);
   --main-text-shadow: 0.5px 0.5px 1px hsl(29, 46%, 100%), -0.5px -0.5px 1px hsl(29, 46%, 70%);
   --main-color: hsl(29, 46%, 25%);
   --selected-color: darkgoldenrod;
@@ -44,6 +45,17 @@
   --z-navigation: 100;
   --z-overlay: 200;
   --z-modal: 300;
+
+  --primary-color: hsl(29, 46%, 25%);
+  --accent-color: darkgoldenrod;
+  --text-muted: #666;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --note-bg: rgba(255, 255, 255, 0.08);
+
+  --warning-color: #e74c3c;
+  --warning-bg: rgba(231, 76, 60, 0.05);
+  --warning-box-bg: rgba(231, 76, 60, 0.1);
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 html {
@@ -221,22 +233,24 @@ h2 {
 }
 
 h3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  text-align: left;
+  font-size: 2.5rem;
+  line-height: 3rem;
 }
 
 h4 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+p, li, time {
+  font-size: 2rem;
+  line-height: 2.5rem;
   text-align: left;
 }
 
-h5,
-h6 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-align: left;
+small {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 }
 
 a {
@@ -260,5 +274,21 @@ main {
   h2 {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+  p, li, time {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: left;
+  }
+  small {
+    font-size: 0.7rem;
   }
 }

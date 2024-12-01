@@ -2,9 +2,13 @@ import { useRef } from "react";
 
 interface SectionRefs {
   home: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
-  "la-naturopathie": { title: string; hash: string; ref: React.RefObject<HTMLElement> };
+  laNaturopathie: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
   parcours: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
-  "reflexologie-plantaire": { title: string; hash: string; ref: React.RefObject<HTMLElement> };
+  reflexologiePlantaire: {
+    title: string;
+    hash: string;
+    ref: React.RefObject<HTMLElement>;
+  };
   massage: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
   tarifs: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
   contact: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
@@ -13,13 +17,13 @@ interface SectionRefs {
 export function useSections() {
   const refs: SectionRefs = {
     home: { title: "Accueil", hash: "home", ref: useRef<HTMLElement>(null) },
-    "la-naturopathie": {
+    laNaturopathie: {
       title: "La naturopathie",
       hash: "la-naturopathie",
       ref: useRef<HTMLElement>(null),
     },
     parcours: { title: "Parcours", hash: "parcours", ref: useRef<HTMLElement>(null) },
-    "reflexologie-plantaire": {
+    reflexologiePlantaire: {
       title: "Réflexologie plantaire",
       hash: "reflexologie-plantaire",
       ref: useRef<HTMLElement>(null),
