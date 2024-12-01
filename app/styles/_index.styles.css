@@ -13,6 +13,7 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-base);
+  pointer-events: none;
 
   /* Visual */
   background: var(--light-bg);

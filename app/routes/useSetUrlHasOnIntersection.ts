@@ -12,7 +12,7 @@ export function useSetUrlHashOnIntersection(sectionRefs: { ref: React.RefObject<
         });
       },
       {
-        threshold: 0.8,
+        threshold: 0.5,
       },
     );
 
