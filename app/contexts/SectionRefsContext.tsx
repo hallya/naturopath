@@ -1,21 +1,23 @@
 import { useRef } from "react";
 
-interface SectionRefs {
-  home: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
-  laNaturopathie: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
-  parcours: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
-  reflexologiePlantaire: {
-    title: string;
-    hash: string;
-    ref: React.RefObject<HTMLElement>;
-  };
-  massage: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
-  tarifs: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
-  contact: { title: string; hash: string; ref: React.RefObject<HTMLElement> };
+export interface Section {
+  title: string;
+  hash: string;
+  ref: React.RefObject<HTMLElement>;
+}
+
+interface IndexSections {
+  home: Section;
+  laNaturopathie: Section;
+  parcours: Section;
+  reflexologiePlantaire: Section;
+  massage: Section;
+  tarifs: Section;
+  contact: Section;
 }
 
 export function useSections() {
-  const refs: SectionRefs = {
+  const refs: IndexSections = {
     home: { title: "Accueil", hash: "home", ref: useRef<HTMLElement>(null) },
     laNaturopathie: {
       title: "La naturopathie",

@@ -376,6 +376,98 @@
   }
 }
 
+/* Section Tarifs */
+
+.tarifs-container {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.tarifs-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.tarif-card {
+  background: var(--card-bg, rgba(255, 255, 255, 0.05));
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--main-box-shadow2);
+  display: grid;
+  row-gap: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.tarif-card:hover {
+  box-shadow: var(--main-box-shadow);
+  transform: translateY(-2px);
+}
+
+.tarif-header {
+  display: grid;
+  row-gap: 1rem;
+  text-align: center;
+}
+
+.tarif-header h3 {
+  color: var(--primary-color);
+}
+
+.tarif-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.tarif-details {
+  display: grid;
+  row-gap: 1rem;
+}
+
+.tarif-details p {
+  text-align: center;
+  font-style: italic;
+}
+
+.tarif-features {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.tarif-features li {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.tarif-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+.tarif-note {
+  background: var(--note-bg, rgba(255, 255, 255, 0.08));
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .tarifs-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tarifs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Section Contact */
 
 .contact-content {
