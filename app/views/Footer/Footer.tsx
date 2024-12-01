@@ -7,9 +7,6 @@ export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 function FooterContent() {
   return (
     <footer>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
     </footer>
   );
 }
