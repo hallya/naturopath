@@ -1,18 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export function useSetUrlHashOnIntersection(sectionRefs: { ref: React.RefObject<HTMLElement> }[]) {
+interface SectionRef {
+  ref: React.RefObject<HTMLElement>;
+}
+
+export function useSetUrlHashOnIntersection(sectionRefs: SectionRef[]) {
+  const [threshold, setThreshold] = useState(0.5);
+
+  // Effet pour détecter le mobile et définir le threshold
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    setThreshold(isMobile ? 0.2 : 0.5);
+  }, []);
+
+  // Effet pour l'intersection observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            window.history.replaceState({}, "", `#${entry.target.id}`);
-            window.dispatchEvent(new Event('hashchange'));
+            const hash = entry.target.id;
+            window.history.replaceState(null, "", `#${hash}`);
           }
         });
       },
       {
-        threshold: 0.5,
+        threshold,
       },
     );
 
@@ -22,6 +35,12 @@ export function useSetUrlHashOnIntersection(sectionRefs: { ref: React.RefObject<
       }
     });
 
-    return () => observer.disconnect();
-  }, [sectionRefs]);
+    return () => {
+      sectionRefs.forEach(section => {
+        if (section.ref.current) {
+          observer.unobserve(section.ref.current);
+        }
+      });
+    };
+  }, [sectionRefs, threshold]);
 }
