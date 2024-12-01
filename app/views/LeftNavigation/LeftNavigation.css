@@ -5,26 +5,26 @@
   right: 5vw;
   bottom: 3.5rem;
   z-index: var(--z-navigation);
-  
+
   /* Layout */
   grid-area: nav;
   display: grid;
   grid-auto-rows: max-content;
   row-gap: 16px;
-  
+
   /* Box Model */
   margin: auto;
   padding: 0 1.25rem 1.25rem;
   border-radius: 0.5rem;
-  
+
   /* Visual */
   background: var(--light-bg);
   box-shadow: var(--main-box-shadow);
-  opacity: 0.9;
-  
+  opacity: 1;
+
   /* Transform */
-  transform: translateY(87%);
-  
+  transform: translateY(100%);
+
   /* Animation */
   transition-duration: 200ms;
 }
@@ -32,7 +32,7 @@
 .menuClosed {
   /* Positioning */
   bottom: 3.5rem;
-  
+
   /* Animation */
   transition-delay: 0.5s;
 }
@@ -48,11 +48,11 @@
 .toggleMenu {
   /* Box Model */
   width: 100%;
-  padding: 20px 16px;
-  
+  padding: 8px 0;
+
   /* Typography */
-  font-size: 1rem;
-  
+  font-size: 1.5rem;
+
   /* Animation */
   transition: 0.2s;
 }
@@ -63,7 +63,7 @@
   grid-auto-flow: row;
   grid-auto-rows: auto;
   gap: 8px;
-  
+
   /* Box Model */
   padding-top: 0;
 }
@@ -71,17 +71,14 @@
 .link {
   /* Layout */
   display: block;
-  
+
   /* Box Model */
   min-width: max-content;
-  padding: 0.75rem;
+  padding: 4px 16px;
   border-radius: 0.5rem;
-  
+
   /* Visual */
   background: initial;
-  
-  /* Typography */
-  font-size: 2rem;
 }
 
 .pressed,
@@ -114,13 +111,8 @@
     /* Box Model */
     padding: 1.25rem;
   }
-  
+
   .toggleMenu {
-    /* Typography */
-    font-size: 3rem;
-  }
-  
-  .link {
     /* Typography */
     font-size: 3rem;
   }
@@ -134,25 +126,20 @@
     right: unset;
     top: 25%;
     bottom: unset;
-    
+
     /* Box Model */
     padding: 1.25rem;
     width: max-content;
-    
+
     /* Visual */
     opacity: 1;
-    
+
     /* Transform */
     transform: translateY(0);
   }
-  
+
   .toggleMenu {
     /* Layout */
     display: none;
-  }
-  
-  .link {
-    /* Typography */
-    font-size: 1.125rem;
   }
 }

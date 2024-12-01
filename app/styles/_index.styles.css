@@ -18,6 +18,12 @@
   background: var(--light-bg);
 }
 
+.home-container {
+  display: grid;
+  grid-auto-rows: max-content;
+  row-gap: 60px;
+}
+
 .backgroundVideo {
   /* Box Model */
   width: 100%;
@@ -37,11 +43,11 @@
   display: grid;
   align-content: center;
   grid-auto-rows: max-content;
-  row-gap: 40px;
+  row-gap: 32px;
 
   /* Box Model */
   min-height: 100vh;
-  padding: 0 40px; /* Allow for a centered container and being able to scroll anywhere in the viewport whereas with width it would be cut off */
+  padding: 0 16px;
   margin: auto;
 }
 
@@ -49,10 +55,6 @@
 .section-title {
   /* Typography */
   text-align: center;
-}
-
-.section-title {
-  padding: 2rem 0;
 }
 
 .logo {
@@ -64,12 +66,8 @@
 
 @media screen and (min-width: 1200px) {
   .section {
-    padding: 0 calc(40vw - 650px / 2); /* Allow for a centered container and being able to scroll anywhere in the viewport whereas with width it would be cut off */
+    width: 900px;
   }
-  .googleMap {
-    height: 40vh;
-  }
-
   .logo {
     width: 15vw;
   }
@@ -80,12 +78,14 @@
 .pillars-list {
   list-style: none;
   padding: 0;
+  display: grid;
+  row-gap: 1rem;
 }
 
 .pillars-list li {
-  padding: 1rem;
-  background: var(--card-bg-light);
   border-radius: 0.5rem;
+  box-shadow: var(--main-box-shadow2);
+  padding: 0.5rem;
 }
 
 .pillar-title {
@@ -102,15 +102,15 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
-  justify-items: baseline
+  justify-items: baseline;
 }
 
 .tool-item {
-  padding: 0.75rem;
-  background: var(--card-bg-light);
   border-radius: 0.5rem;
+  box-shadow: var(--main-box-shadow2);
+  padding: 0.5rem;
   display: grid;
-  row-gap: 0.5rem;
+  row-gap: 1rem;
   grid-auto-rows: max-content;
 }
 
@@ -125,37 +125,17 @@
 }
 
 .condition-category {
-  padding: 1rem;
   background: var(--card-bg-light);
   border-radius: 0.5rem;
 }
 
 .condition-category h4 {
   color: var(--primary-color);
-  margin: 0 0 0.5rem 0;
 }
 
-.condition-category p {
-  margin: 0;
-}
-
-@media (min-width: 1200px) {
-  .conditions-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .tools-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 1199px) {
+@media (max-width: 767px) {
   .tools-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .condition-category {
-    padding: 0.75rem;
   }
 }
 
@@ -163,8 +143,6 @@
 
 .cv-container {
   width: 100%;
-  max-width: 64rem;
-  margin: 0 auto;
   display: grid;
   row-gap: 2.5rem;
 }
@@ -176,9 +154,7 @@
 
 .cv-section-title {
   color: var(--primary-color);
-  padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--primary-color);
-
 }
 
 .cv-timeline {
@@ -193,7 +169,7 @@
   padding: 1rem;
   transition: transform 0.2s ease;
   display: grid;
-  row-gap: 1.5rem;
+  row-gap: 1rem;
 }
 
 .cv-card:hover {
@@ -209,7 +185,6 @@
 }
 
 .cv-card-title {
-  margin: 0;
   color: var(--primary-color);
 }
 
@@ -233,19 +208,13 @@
   display: block;
 }
 
-/* Tablette et plus */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 768px) {
   .cv-card {
     padding: 1.5rem;
     row-gap: 0.5rem;
   }
-
-  .cv-date {
-    margin-bottom: 0;
-  }
 }
 
-/* Desktop */
 @media only screen and (min-width: 1024px) {
   .cv-timeline {
     position: relative;
@@ -283,20 +252,14 @@
 /* Section réflexologie plantaire */
 
 .service-content {
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.service-intro {
-  margin-bottom: 2rem;
+  display: grid;
+  row-gap: 1.5rem;
 }
 
 .service-highlight {
   color: var(--primary-color);
   border-left: 3px solid var(--primary-color);
   padding-left: 1rem;
-  margin: 1.5rem 0;
 }
 
 .service-details {
@@ -308,9 +271,10 @@
 .info-card {
   background: var(--card-bg, rgba(255, 255, 255, 0.05));
   border-radius: 0.75rem;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: var(--main-box-shadow2);
   display: grid;
+  grid-auto-rows: max-content;
   row-gap: 1.5rem;
 }
 
@@ -341,25 +305,16 @@
   background: var(--note-bg, rgba(255, 255, 255, 0.08));
   border-radius: 0.5rem;
   padding: 1rem;
-  margin-top: 2rem;
 }
 
 /* Tablette */
 @media only screen and (min-width: 1200px) {
-  .service-content {
-    padding: 2rem;
-  }
-
   .service-details {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 430px);
   }
 
   .service-note {
     grid-column: 1 / -1;
-  }
-
-  .service-highlight {
-    margin: 0 0 2rem;
   }
 
   .info-card:hover {
@@ -406,10 +361,9 @@
 }
 
 .warning-box p {
-  margin: 0;
   color: var(--warning-color, #e74c3c);
 }
-/* Adaptation mobile */
+
 @media only screen and (max-width: 768px) {
   .legal-list li {
     padding: 0.5rem 0;
@@ -424,23 +378,21 @@
 /* Section Contact */
 
 .contact-content {
-  max-width: 1200px;
-  padding: 2rem 1rem;
+  display: grid;
+  row-gap: 1.5rem;
 }
 
 .contact-card {
-  background: var(--card-bg, rgba(255, 255, 255, 0.05));
   border-radius: 1rem;
-  padding: 2rem;
-  margin-bottom: 2rem;
   box-shadow: var(--main-box-shadow2);
+  display: grid;
+  row-gap: 1rem;
 }
 
 .contact-item {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  padding: 1rem 0;
   border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
 }
 
@@ -461,13 +413,7 @@
 }
 
 .contact-details h3 {
-  margin: 0 0 0.5rem 0;
   color: var(--primary-color);
-}
-
-.contact-details p {
-  margin: 0;
-  line-height: 1.5;
 }
 
 .phone-link {
@@ -493,7 +439,6 @@
   border: none;
 }
 
-/* Responsive Design */
 @media (min-width: 1200px) {
   .contact-content {
     display: grid;
@@ -501,15 +446,11 @@
     gap: 2rem;
     align-items: start;
   }
-
-  .contact-card {
-    margin-bottom: 0;
-  }
 }
 
 @media (max-width: 767px) {
   .contact-card {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
   }
 
   .contact-item {
