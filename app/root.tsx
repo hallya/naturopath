@@ -8,14 +8,57 @@ import { Footer } from "./views/Footer";
 
 export const meta: MetaFunction = () => {
   return [
+    { charset: "utf-8" },
+    { title: "Les Soins de Léa - Naturopathe à Bordeaux (33)" },
     {
-      title: "Léa Dulac - Naturopathe",
-      charset: "utf-8",
-      viewport: "width=device-width,initial-scale=1",
+      name: "viewport",
+      content: "width=device-width, initial-scale=1, shrink-to-fit=no",
     },
     {
       name: "description",
-      content: "Léa Dulac - Naturopathe",
+      content:
+        "Naturopathe et praticienne en massage bien-être & énergétique à Bordeaux. Réflexologie plantaire, massages, accompagnement naturopathique personnalisé.",
+    },
+    // Open Graph tags pour un meilleur partage sur les réseaux sociaux
+    {
+      property: "og:title",
+      content: "Les Soins de Léa - Naturopathe à Bordeaux",
+    },
+    {
+      property: "og:description",
+      content:
+        "Naturopathe et praticienne en massage bien-être & énergétique à Bordeaux. Réflexologie plantaire, massages, accompagnement naturopathique personnalisé.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:image",
+      content: "/img/logo.webp", // Assurez-vous que ce chemin est correct
+    },
+    // Meta tags additionnels pour le SEO
+    {
+      name: "keywords",
+      content:
+        "naturopathie, massage, réflexologie plantaire, bien-être, Bordeaux, Talence, thérapie naturelle, santé holistique",
+    },
+    {
+      name: "author",
+      content: "Léa Dulac",
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    // Pour la géolocalisation
+    {
+      name: "geo.region",
+      content: "FR-33",
+    },
+    {
+      name: "geo.placename",
+      content: "Talence",
     },
   ];
 };
