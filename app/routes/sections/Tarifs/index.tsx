@@ -33,7 +33,7 @@ export function Tarifs({ section }: TarifsProps) {
               <div className="tarif-price">45€</div>
             </div>
             <div className="tarif-details">
-              <p>Consultation de suivi (1h)</p>
+              <p>Consultation de suivi (45 min)</p>
               <ul className="tarif-features">
                 <li>Ajustement du programme</li>
                 <li>Accompagnement personnalisé</li>
@@ -44,23 +44,8 @@ export function Tarifs({ section }: TarifsProps) {
 
           <article className="tarif-card">
             <div className="tarif-header">
-              <h3>Réflexologie Plantaire</h3>
-              <div className="tarif-price">50€</div>
-            </div>
-            <div className="tarif-details">
-              <p>Séance complète (1h)</p>
-              <ul className="tarif-features">
-                <li>Bilan énergétique</li>
-                <li>Massage des zones réflexes</li>
-                <li>Conseils personnalisés</li>
-              </ul>
-            </div>
-          </article>
-
-          <article className="tarif-card">
-            <div className="tarif-header">
-              <h3>Massage Bien-être</h3>
-              <div className="tarif-price">55€</div>
+              <h3>Massage Californien</h3>
+              <div className="tarif-price">45€</div>
             </div>
             <div className="tarif-details">
               <p>Séance relaxante (1h)</p>
@@ -68,6 +53,51 @@ export function Tarifs({ section }: TarifsProps) {
                 <li>Massage personnalisé</li>
                 <li>Techniques adaptées</li>
                 <li>Moment de détente</li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="tarif-card">
+            <div className="tarif-header">
+              <h3>Massage Californien Complet</h3>
+              <div className="tarif-price">60€</div>
+            </div>
+            <div className="tarif-details">
+              <p>Séance complète (1h30)</p>
+              <ul className="tarif-features">
+                <li>Massage corps entier</li>
+                <li>Relaxation profonde</li>
+                <li>Détente musculaire complète</li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="tarif-card">
+            <div className="tarif-header">
+              <h3>Massage Dos et Bras</h3>
+              <div className="tarif-price">30€</div>
+            </div>
+            <div className="tarif-details">
+              <p>Séance ciblée (30 min)</p>
+              <ul className="tarif-features">
+                <li>Focus zones de tension</li>
+                <li>Détente du haut du corps</li>
+                <li>Soulagement rapide</li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="tarif-card">
+            <div className="tarif-header">
+              <h3>Réflexologie Plantaire</h3>
+              <div className="tarif-price">25€</div>
+            </div>
+            <div className="tarif-details">
+              <p>Séance express (30 min)</p>
+              <ul className="tarif-features">
+                <li>Massage des zones réflexes</li>
+                <li>Rééquilibrage énergétique</li>
+                <li>Détente des pieds</li>
               </ul>
             </div>
           </article>
